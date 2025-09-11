@@ -102,7 +102,135 @@ const Section5: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
 
+        <div className="mt-16 lg:grid lg:grid-cols-3 lg:gap-10">
+          <div className="rounded-2xl flex flex-col justify-between py-16 px-4 lg:p-14" style={cardStyle}>
+            <div>
+              <h4 className="text-xl font-bold text-white">Sales Reps</h4>
+              <p className="mt-4 text-5xl font-bold tracking-tight text-white">
+                $297
+                <span className="text-3xl font-medium">/mo</span>
+              </p>
+              <ul role="list" className="mt-8 space-y-4 text-[#c3c3c3]">
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none" style={{ color: '#32d09f' }} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clipRule="evenodd" />
+                  </svg>
+                  Get Immediate access to the Closify job pool
+                </li>
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none" style={{ color: '#32d09f' }} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clipRule="evenodd" />
+                  </svg>
+                  Keep Full Control of Your Profile
+                </li>
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none" style={{ color: '#32d09f' }} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clipRule="evenodd" />
+                  </svg>
+                  Outreach directly to job listings
+                </li>
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none" style={{ color: '#32d09f' }} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clipRule="evenodd" />
+                  </svg>
+                  Land a quality sales job and get better
+                </li>
+              </ul>
+            </div>
+            <a
+              href="#"
+              className="mt-10 block w-full text-center rounded-md border border-transparent px-8 py-3 text-sm font-medium transform hover:-translate-y-0.5 transition hover:brightness-110"
+              style={buttonStyle}
+            >
+              Get Started
+            </a>
+          </div>
+          <div className="rounded-2xl flex flex-col justify-between py-16 px-4 lg:p-14" style={cardStyle}>
+            <div>
+              <h4 className="text-xl font-bold text-white">Sales Reps</h4>
+              <p className="mt-4 text-5xl font-bold tracking-tight text-white">
+                $297
+                <span className="text-3xl font-medium">/mo</span>
+              </p>
+              <ul role="list" className="mt-8 space-y-4 text-[#c3c3c3]">
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none" style={{ color: '#32d09f' }} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clipRule="evenodd" />
+                  </svg>
+                  Get Immediate access to the Closify job pool
+                </li>
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none" style={{ color: '#32d09f' }} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clipRule="evenodd" />
+                  </svg>
+                  Keep Full Control of Your Profile
+                </li>
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none" style={{ color: '#32d09f' }} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clipRule="evenodd" />
+                  </svg>
+                  Outreach directly to job listings
+                </li>
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none" style={{ color: '#32d09f' }} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clipRule="evenodd" />
+                  </svg>
+                  Land a quality sales job and get better
+                </li>
+              </ul>
+            </div>
+            <a
+              href="#"
+              className="mt-10 block w-full text-center rounded-md border border-transparent px-8 py-3 text-sm font-medium transform hover:-translate-y-0.5 transition hover:brightness-110"
+              style={buttonStyle}
+            >
+              Get Started
+            </a>
+          </div>
+          <div className="rounded-2xl flex flex-col justify-between py-16 px-4 lg:p-14" style={cardStyle}>
+            <div>
+              <h4 className="text-xl font-bold text-white">Sales Reps</h4>
+              <p className="mt-4 text-5xl font-bold tracking-tight text-white">
+                $297
+                <span className="text-3xl font-medium">/mo</span>
+              </p>
+              <ul role="list" className="mt-8 space-y-4 text-[#c3c3c3]">
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none" style={{ color: '#32d09f' }} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clipRule="evenodd" />
+                  </svg>
+                  Get Immediate access to the Closify job pool
+                </li>
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none" style={{ color: '#32d09f' }} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clipRule="evenodd" />
+                  </svg>
+                  Keep Full Control of Your Profile
+                </li>
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none" style={{ color: '#32d09f' }} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clipRule="evenodd" />
+                  </svg>
+                  Outreach directly to job listings
+                </li>
+                <li className="flex gap-x-3">
+                  <svg className="h-6 w-5 flex-none" style={{ color: '#32d09f' }} viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fillRule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.052-.143z" clipRule="evenodd" />
+                  </svg>
+                  Land a quality sales job and get better
+                </li>
+              </ul>
+            </div>
+            <a
+              href="#"
+              className="mt-10 block w-full text-center rounded-md border border-transparent px-8 py-3 text-sm font-medium transform hover:-translate-y-0.5 transition hover:brightness-110"
+              style={buttonStyle}
+            >
+              Get Started
+            </a>
+          </div>
         </div>
       </div>
     </section>

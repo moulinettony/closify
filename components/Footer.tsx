@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
       <div style={{ maxWidth: '1216px' }} className="mx-auto p-6 lg:px-8">
         <div className="flex justify-center space-x-6">
         </div>
-        <p className="text-center text-base text-[c3c3c3]">
+        <p className="text-center text-base text-[#c3c3c3]">
           &copy; {new Date().getFullYear()} Closify. All rights reserved.
         </p>
       </div>

@@ -10,7 +10,7 @@ import Section7 from './components/Section7';
 const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <main>
+      <main className="bg-[#0a0c0b]">
         <Section1 />
         <Section2 />
         <Section3 />

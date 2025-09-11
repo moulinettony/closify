@@ -25,7 +25,7 @@ const Section4: React.FC = () => {
     <section
       id="section4"
       style={sectionStyle}
-      className="bg-size-[10vh 50vw] lg:bg-contain"
+      className="bg-size-[10vh_50vw] lg:bg-contain"
     >
       <div style={{ maxWidth: '1300px' }} className="mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="lg:grid lg:grid-cols-5 lg:gap-16 lg:items-center">
