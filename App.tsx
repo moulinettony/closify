@@ -1,6 +1,8 @@
 import React from 'react';
 import Section1 from './components/Section1';
 import Section2 from './components/Section2';
+import Section3 from './components/Section3';
+import Section4 from './components/Section4';
 import PlaceholderSection from './components/PlaceholderSection';
 import Footer from './components/Footer';
 
@@ -10,18 +12,8 @@ const App: React.FC = () => {
       <main>
         <Section1 />
         <Section2 />
-        <PlaceholderSection
-          id="section3"
-          title="Section 3: Product Showcase"
-          bgColor="bg-white"
-          textColor="text-slate-800"
-        />
-        <PlaceholderSection
-          id="section4"
-          title="Section 4: Testimonials"
-          bgColor="bg-slate-800"
-          textColor="text-white"
-        />
+        <Section3 />
+        <Section4 />
         <PlaceholderSection
           id="section5"
           title="Section 5: How It Works"

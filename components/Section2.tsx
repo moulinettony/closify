@@ -56,9 +56,9 @@ const Section2: React.FC = () => {
       className="py-20 sm:py-24 text-slate-200"
       style={sectionStyle}
     >
-      <div style={{ maxWidth: '1216px' }} className="mx-auto px-4 sm:px-6 lg:px-8">
+      <div style={{ maxWidth: '1300px' }} className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mt-10" style={{ color: '#0a0c0b' }}>
+          <h2 className="text-3xl font-bold tracking-tight lg:text-4xl mt-10" style={{ color: '#0a0c0b' }}>
             Hiring with Closify is <span style={{ color: '#32d09f' }}>simple</span>
           </h2>
           <p className="mt-4 text-lg leading-6" style={{ color: '#333' }}>
@@ -84,7 +84,7 @@ const Section2: React.FC = () => {
             >
               <div className="px-6">
                 <img style={featureIconStyle} className="" src={card.bottomImage} alt="Feature Icon" />
-                <h3 className="text-white font-semibold" style={{ fontSize: '28px' }}>{card.title}</h3>
+                <h3 className="text-white font-semibold text-2xl lg:text-3xl">{card.title}</h3>
                 <p className="mt-3 text-base text-white opacity-80">{card.description}</p>
               </div>
               <img className="h-56 w-full object-cover object-top mt-8" src={card.topImage} alt={`Illustration for ${card.title}`} />

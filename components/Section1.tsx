@@ -47,11 +47,11 @@ const Section1: React.FC = () => {
       style={sectionStyle}
     >
       <Header />
-      <div style={{ maxWidth: '1216px' }} className="mx-auto px-4 lg:px-0 pb-16">
+      <div style={{ maxWidth: '1300px' }} className="mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="lg:grid lg:grid-cols-5 lg:gap-16 lg:items-center pt-16">
           <div className="text-left lg:col-span-2">
             <h2 className="text-base font-bold tracking-wide uppercase" style={{ color: '#32d09f' }}>Welcome to Closify.</h2>
-            <h1 className="mt-2 text-3xl tracking-tight font-bold text-white sm:text-4xl md:text-[38px] md:leading-tight">
+            <h1 className="mt-2 text-[28px] tracking-tight font-bold text-white md:text-[38px] md:leading-tight">
               Hire <span style={gradientTextStyle}>Commission-Only </span>
               Sales Reps for your Business
             </h1>
