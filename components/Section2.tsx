@@ -62,7 +62,7 @@ const Section2: React.FC = () => {
             Hiring with Closify is <span style={{ color: '#32d09f' }}>simple</span>
           </h2>
           <p className="mt-4 text-lg leading-6" style={{ color: '#333' }}>
-            We connect you with a vast network of commission-only sales reps, ready to scale your business. Here's how simple it is to get started.
+            We make it easy to hire, onboard, and manage commission only sales reps. We do a lot of the heavy lifting for you, so that way you can focus on what business owners should focus on growing the business.
           </p>
           <div className="mt-8 flex justify-center">
             <a

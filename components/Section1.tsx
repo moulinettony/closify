@@ -55,7 +55,7 @@ const Section1: React.FC = () => {
               Hire <span style={gradientTextStyle}>Commission-Only </span>
               Sales Reps for your Business
             </h1>
-            <p className="mt-3 max-w-2xl text-lg text-slate-300 md:mt-5">
+            <p className="mt-3 max-w-2xl text-lg text-[#c3c3c3] md:mt-5">
               Closify helps you recruit, hire, and manage high ticket, commission-only sales reps for your business.
             </p>
             <div className="mt-8 flex justify-start">
