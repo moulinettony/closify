@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import BrandSlider from './BrandSlider';
 import Header from './Header';
@@ -49,16 +50,16 @@ const Section1: React.FC = () => {
       <Header />
       <div style={{ maxWidth: '1300px' }} className="mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="lg:grid lg:grid-cols-5 lg:gap-16 lg:items-center pt-16">
-          <div className="text-left lg:col-span-2">
+          <div className="text-center lg:text-left lg:col-span-2">
             <h2 className="text-base font-bold tracking-wide uppercase" style={{ color: '#32d09f' }}>Welcome to Closify.</h2>
             <h1 className="mt-2 text-[28px] tracking-tight font-bold text-white md:text-[38px] md:leading-tight">
               Hire <span style={gradientTextStyle}>Commission-Only </span>
               Sales Reps for your Business
             </h1>
-            <p className="mt-3 max-w-2xl text-lg text-[#c3c3c3] md:mt-5">
+            <p className="mt-3 max-w-2xl mx-auto lg:mx-0 text-lg text-[#c3c3c3] md:mt-5">
               Closify helps you recruit, hire, and manage high ticket, commission-only sales reps for your business.
             </p>
-            <div className="mt-8 flex justify-start">
+            <div className="mt-8 flex justify-center lg:justify-start">
               <a
                 href="#"
                 className="inline-block rounded-md border border-transparent px-8 py-3 text-sm font-medium transform hover:-translate-y-0.5 transition hover:brightness-110"

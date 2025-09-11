@@ -1,4 +1,5 @@
 
+
 import React from 'react';
 
 const Section3: React.FC = () => {
@@ -29,16 +30,16 @@ const Section3: React.FC = () => {
       style={sectionStyle}
     >
       <div style={{ maxWidth: '1300px' }} className="mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-left">
+        <div className="text-center lg:text-left">
           <h3 className="text-base font-bold tracking-wide uppercase" style={{ color: '#32d09f' }}>Our Platform</h3>
           <h2 className="mt-2 text-[28px] tracking-tight font-bold text-white md:text-[38px] md:leading-tight">
             Manage Your Sales Team 
             <span style={gradientTextStyle}> All In One Place</span>
           </h2>
-          <p className="mt-3 max-w-2xl text-lg text-[#c3c3c3] md:mt-5">
+          <p className="mt-3 max-w-2xl mx-auto lg:mx-0 text-lg text-[#c3c3c3] md:mt-5">
             Closify provides a comprehensive dashboard to track your sales team's performance, manage commissions, and access a pool of vetted sales talent on demand.
           </p>
-          <div className="mt-8 flex justify-start">
+          <div className="mt-8 flex justify-center lg:justify-start">
             <a
               href="#"
               className="inline-block rounded-md border border-transparent px-8 py-3 text-sm font-medium transform hover:-translate-y-0.5 transition hover:brightness-110"
