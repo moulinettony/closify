@@ -1,0 +1,5 @@
+{
+  "name": "Multi-Section Landing Page",
+  "description": "A visually appealing, responsive landing page built with React and Tailwind CSS, featuring eight distinct sections. The first section includes a split layout with text and an image, complemented by a scrolling brand logo slider.",
+  "requestFramePermissions": []
+}

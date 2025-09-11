@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi-Section Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              'infinite-scroll': 'infinite-scroll 25s linear infinite',
+            },
+            keyframes: {
+              'infinite-scroll': {
+                from: { transform: 'translateX(0)' },
+                to: { transform: 'translateX(-100%)' },
+              }
+            }                    
+          }
+        }
+      }
+    </script>
+    <style>
+      @media (max-width: 767px) {
+        #section2 {
+          background-image: linear-gradient(#0000 5%, #fff 7%), url('https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe2c88897146b22b30105_Group%2072%20(1).png') !important;
+          background-size: auto, 200vw !important;
+        }
+      }
+    </style>
+    <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
+  }
+}
+</script>
+</head>
+  <body class="text-slate-200" style="background-color: #0a0c0b;">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
