@@ -3,8 +3,9 @@ import Section1 from './components/Section1';
 import Section2 from './components/Section2';
 import Section3 from './components/Section3';
 import Section4 from './components/Section4';
-import PlaceholderSection from './components/PlaceholderSection';
-import Footer from './components/Footer';
+import Section5 from './components/Section5';
+import Section6 from './components/Section6';
+import Section7 from './components/Section7';
 
 const App: React.FC = () => {
   return (
@@ -14,32 +15,10 @@ const App: React.FC = () => {
         <Section2 />
         <Section3 />
         <Section4 />
-        <PlaceholderSection
-          id="section5"
-          title="Section 5: How It Works"
-          bgColor="bg-white"
-          textColor="text-slate-800"
-        />
-        <PlaceholderSection
-          id="section6"
-          title="Section 6: Pricing"
-          bgColor="bg-slate-100"
-          textColor="text-slate-800"
-        />
-        <PlaceholderSection
-          id="section7"
-          title="Section 7: FAQ"
-          bgColor="bg-white"
-          textColor="text-slate-800"
-        />
-        <PlaceholderSection
-          id="section8"
-          title="Section 8: Get In Touch"
-          bgColor="bg-indigo-600"
-          textColor="text-white"
-        />
+        <Section5 />
+        <Section6 />
+        <Section7 />
       </main>
-      <Footer />
     </div>
   );
 };

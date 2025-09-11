@@ -15,8 +15,7 @@ const Header: React.FC = () => {
           </div>
           <nav className="hidden md:flex space-x-8">
             <a href="#section2" className="text-slate-200 font-medium" style={{ transition: 'color 0.3s' }} onMouseOver={e => e.currentTarget.style.color='#32d09f'} onMouseOut={e => e.currentTarget.style.color=''}>Features</a>
-            <a href="#section6" className="text-slate-200 font-medium" style={{ transition: 'color 0.3s' }} onMouseOver={e => e.currentTarget.style.color='#32d09f'} onMouseOut={e => e.currentTarget.style.color=''}>Pricing</a>
-            <a href="#section8" className="text-slate-200 font-medium" style={{ transition: 'color 0.3s' }} onMouseOver={e => e.currentTarget.style.color='#32d09f'} onMouseOut={e => e.currentTarget.style.color=''}>Contact</a>
+            <a href="#section5" className="text-slate-200 font-medium" style={{ transition: 'color 0.3s' }} onMouseOver={e => e.currentTarget.style.color='#32d09f'} onMouseOut={e => e.currentTarget.style.color=''}>Pricing</a>
           </nav>
         </div>
       </div>

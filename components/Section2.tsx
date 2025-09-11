@@ -53,7 +53,7 @@ const Section2: React.FC = () => {
   return (
     <section 
       id="section2" 
-      className="py-20 sm:py-24 text-slate-200"
+      className="py-16 sm:py-18 text-slate-200"
       style={sectionStyle}
     >
       <div style={{ maxWidth: '1300px' }} className="mx-auto px-4 sm:px-6 lg:px-8">

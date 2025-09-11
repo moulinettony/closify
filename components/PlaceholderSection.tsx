@@ -10,7 +10,7 @@ interface PlaceholderSectionProps {
 
 const PlaceholderSection: React.FC<PlaceholderSectionProps> = ({ id, title, bgColor, textColor }) => {
   return (
-    <section id={id} className={`py-20 sm:py-24 ${bgColor} ${textColor}`}>
+    <section id={id} className={`py-16 sm:py-18 ${bgColor} ${textColor}`}>
       <div style={{ maxWidth: '1216px' }} className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">{title}</h2>
