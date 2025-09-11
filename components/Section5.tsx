@@ -13,7 +13,6 @@ const Section5: React.FC = () => {
     backgroundImage: "url('https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645eceecba573d42a2d848f0_Group%2070%20(1).png')",
     backgroundPosition: '0 100%',
     backgroundSize: 'cover',
-    padding: '4rem',
   };
 
   return (
@@ -32,7 +31,7 @@ const Section5: React.FC = () => {
         </div>
 
         <div className="mt-16 lg:grid lg:grid-cols-2 lg:gap-16">
-          <div className="rounded-2xl flex flex-col justify-between" style={cardStyle}>
+          <div className="rounded-2xl flex flex-col justify-between py-16 px-4 lg:p-20" style={cardStyle}>
             <div>
               <h4 className="text-xl font-bold text-white">Sales Reps</h4>
               <p className="mt-4 text-5xl font-bold tracking-tight text-white">

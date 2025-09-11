@@ -18,14 +18,14 @@ const Section4: React.FC = () => {
   const sectionStyle: React.CSSProperties = {
     backgroundImage: "url('https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/64602e7d690df7d5dceb87f1_4.png')",
     backgroundPosition: '0%',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain'
+    backgroundRepeat: 'no-repeat'
   };
 
   return (
     <section
       id="section4"
       style={sectionStyle}
+      className="bg-size-[10vh 50vw] lg:bg-contain"
     >
       <div style={{ maxWidth: '1300px' }} className="mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="lg:grid lg:grid-cols-5 lg:gap-16 lg:items-center">
@@ -48,7 +48,7 @@ const Section4: React.FC = () => {
           </div>
           <div className="mt-12 lg:mt-0 lg:col-span-3">
             <img
-              className="max-w-[543px] float-right"
+              className="lg:max-w-[543px] lg:float-right"
               src="https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/64600be16eeb2a8e192ee4e2_Group%2074%20(4).png"
               alt="Recruiting sales professionals"
             />
