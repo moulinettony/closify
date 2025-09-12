@@ -67,10 +67,7 @@ const ContactSection: React.FC = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsImageVisible(true);
-            observer.unobserve(entry.target);
-          }
+          setIsImageVisible(entry.isIntersecting);
         });
       },
       { threshold: 0.1 }

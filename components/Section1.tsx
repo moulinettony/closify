@@ -10,10 +10,7 @@ const Section1: React.FC = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVideoVisible(true);
-            observer.unobserve(entry.target);
-          }
+          setIsVideoVisible(entry.isIntersecting);
         });
       },
       { threshold: 0.1 }

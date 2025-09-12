@@ -14,10 +14,7 @@ const AnimatedWrapper: React.FC<AnimatedProps> = ({ children, delay = 0 }) => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target);
-          }
+          setIsVisible(entry.isIntersecting);
         });
       },
       { threshold: 0.1 }
@@ -65,7 +62,7 @@ const testimonialsData = [
   {
     videoId: 'jgb3pqs49i',
     title: '"The quality of candidates on Closify is unmatched."',
-    avatar: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D%3D&auto=format&fit=crop&w=1170&q=80',
+    avatar: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
     name: 'Michael Thompson',
     intro: 'CEO, Growth Partners',
   },

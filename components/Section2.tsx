@@ -34,10 +34,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({ card, index }) => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target);
-          }
+          setIsVisible(entry.isIntersecting);
         });
       },
       {

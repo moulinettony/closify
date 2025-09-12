@@ -17,10 +17,7 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, answer, isOpen, onClick, in
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target);
-          }
+          setIsVisible(entry.isIntersecting);
         });
       },
       { threshold: 0.1 }
