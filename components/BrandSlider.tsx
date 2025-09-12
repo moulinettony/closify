@@ -13,7 +13,7 @@ const BrandSlider: React.FC = () => {
   
   return (
     <div 
-      className="w-full flex flex-nowrap overflow-hidden"
+      className="w-full flex flex-nowrap overflow-hidden hue-rotate-[45deg]"
       style={sliderContainerStyle}
     >
       <ul className="flex items-center justify-start [&_li]:mx-8 [&_svg]:max-w-none animate-infinite-scroll">

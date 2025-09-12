@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Footer from './Footer';
+import React, { useState, useEffect, useRef } from 'react';
 
 // Single FAQ Item Component
 interface FaqItemProps {
@@ -7,9 +6,38 @@ interface FaqItemProps {
   answer: string;
   isOpen: boolean;
   onClick: () => void;
+  index: number;
 }
 
-const FaqItem: React.FC<FaqItemProps> = ({ question, answer, isOpen, onClick }) => {
+const FaqItem: React.FC<FaqItemProps> = ({ question, answer, isOpen, onClick, index }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentRef = ref.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, []);
+  
   const itemStyle: React.CSSProperties = {
     backgroundColor: '#31433db3',
     borderColor: '#baffd882',
@@ -20,23 +48,29 @@ const FaqItem: React.FC<FaqItemProps> = ({ question, answer, isOpen, onClick }) 
   };
   
   return (
-    <div style={itemStyle}>
-      <button
-        className="w-full flex justify-between items-center text-left text-lg p-6 font-medium text-white focus:outline-none"
-        onClick={onClick}
-        aria-expanded={isOpen}
-      >
-        <span>{question}</span>
-        <span className={`transform transition-transform duration-200 ${isOpen ? 'rotate-45' : ''}`}>
-          <svg style={{ color: '#32d09f' }} className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12m6-6H6" />
-          </svg>
-        </span>
-      </button>
-      <div
-        className={`overflow-hidden transition-max-height duration-200 ease-in-out px-6 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}
-      >
-        <p className="text-slate-300 pr-8">{answer}</p>
+    <div
+      ref={ref}
+      className={`transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+      style={{ transitionDelay: `${index * 100}ms` }}
+    >
+      <div style={itemStyle}>
+        <button
+          className="w-full flex justify-between items-center text-left text-lg p-6 font-medium text-white focus:outline-none"
+          onClick={onClick}
+          aria-expanded={isOpen}
+        >
+          <span>{question}</span>
+          <span className={`transform transition-transform duration-200 ${isOpen ? 'rotate-45' : ''}`}>
+            <svg style={{ color: '#32d09f' }} className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v12m6-6H6" />
+            </svg>
+          </span>
+        </button>
+        <div
+          className={`overflow-hidden transition-max-height duration-200 ease-in-out px-6 ${isOpen ? 'max-h-96 pb-6' : 'max-h-0'}`}
+        >
+          <p className="text-slate-300 pr-8">{answer}</p>
+        </div>
       </div>
     </div>
   );
@@ -100,13 +134,13 @@ const Section7: React.FC = () => {
                   answer={faq.answer}
                   isOpen={openFaq === index}
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  index={index}
                 />
               ))}
             </div>
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 };

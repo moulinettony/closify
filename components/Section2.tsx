@@ -1,22 +1,66 @@
+import React, { useState, useEffect, useRef } from 'react';
 
-import React from 'react';
+const cardsData = [
+  {
+    topImage: "https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe905ee0fd034303b929f_Group%2074%20(1).png",
+    title: "Make A Job Post Or Search",
+    description: "There are hundreds of tried and tested closers to interview within our platform.",
+    bottomImage: "https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe5eeee0fd0343039029b_Vector.png",
+  },
+  {
+    topImage: "https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe93ac147b29d6a806df5_Group%2075%20(1).png",
+    title: "Seamlessly Interview Closers",
+    description: "Easily schedule an interview on your preferred platform with our qualified closers.",
+    bottomImage: "https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe6783f5779469c74dadb_Vector-1.png",
+  },
+  {
+    topImage: "https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/64602618c147b29d6aaf1f69_Frame%206%20(4).png",
+    title: "Hire for a simple flat fee",
+    description: "Closify doesn't charge a percentage or any other nonsense. You can hire reps for a flat fee with the click of a button.",
+    bottomImage: "https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe723f1704753082c2dd3_Vector-2.png",
+  }
+];
 
-const Section2: React.FC = () => {
-  const buttonStyle = {
-    backgroundColor: '#32d09f',
-    boxShadow: '0 0 16px 1px #32d09f96',
-    color: '#0b0d0c'
-  };
-  
-  const cardStyle = {
+interface AnimatedCardProps {
+  card: typeof cardsData[0];
+  index: number;
+}
+
+const AnimatedCard: React.FC<AnimatedCardProps> = ({ card, index }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    const currentCardRef = cardRef.current;
+    if (currentCardRef) {
+      observer.observe(currentCardRef);
+    }
+
+    return () => {
+      if (currentCardRef) {
+        observer.unobserve(currentCardRef);
+      }
+    };
+  }, []);
+
+  const cardStyle: React.CSSProperties = {
     maxWidth: '373px',
     backgroundImage: 'linear-gradient(#000 81%, #32d09f)',
-  };
-
-  const sectionStyle = {
-    backgroundImage: "url('https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe2c88897146b22b30105_Group%2072%20(1).png')",
-    backgroundPosition: '50% 0px',
-    backgroundSize: 'cover',
+    transitionDelay: `${index * 150}ms`,
   };
 
   const featureIconStyle: React.CSSProperties = {
@@ -29,26 +73,34 @@ const Section2: React.FC = () => {
     display: 'block',
   };
 
-  const cardsData = [
-    {
-      topImage: "https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe905ee0fd034303b929f_Group%2074%20(1).png",
-      title: "Make A Job Post Or Search",
-      description: "There are hundreds of tried and tested closers to interview within our platform.",
-      bottomImage: "https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe5eeee0fd0343039029b_Vector.png",
-    },
-    {
-      topImage: "https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe93ac147b29d6a806df5_Group%2075%20(1).png",
-      title: "Seamlessly Interview Closers",
-      description: "Easily schedule an interview on your preferred platform with our qualified closers.",
-      bottomImage: "https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe6783f5779469c74dadb_Vector-1.png",
-    },
-    {
-      topImage: "https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/64602618c147b29d6aaf1f69_Frame%206%20(4).png",
-      title: "Hire for a simple flat fee",
-      description: "Closify doesn't charge a percentage or any other nonsense. You can hire reps for a flat fee with the click of a button.",
-      bottomImage: "https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe723f1704753082c2dd3_Vector-2.png",
-    }
-  ];
+  return (
+    <div
+      ref={cardRef}
+      className={`flex flex-col rounded-3xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-1000 ease-out mx-auto ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+      style={cardStyle}
+    >
+      <div className="px-6">
+        <img style={featureIconStyle} className="" src={card.bottomImage} alt="Feature Icon" />
+        <h3 className="text-white font-semibold text-2xl lg:text-3xl">{card.title}</h3>
+        <p className="mt-3 text-base text-white opacity-80">{card.description}</p>
+      </div>
+      <img className="h-56 w-full object-cover object-top mt-8" src={card.topImage} alt={`Illustration for ${card.title}`} />
+    </div>
+  );
+};
+
+const Section2: React.FC = () => {
+  const buttonStyle = {
+    backgroundColor: '#32d09f',
+    boxShadow: '0 0 16px 1px #32d09f96',
+    color: '#0b0d0c'
+  };
+  
+  const sectionStyle = {
+    backgroundImage: "url('https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645fe2c88897146b22b30105_Group%2072%20(1).png')",
+    backgroundPosition: '50% 0px',
+    backgroundSize: 'cover',
+  };
 
   return (
     <section 
@@ -77,18 +129,7 @@ const Section2: React.FC = () => {
 
         <div className="mt-16 grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           {cardsData.map((card, index) => (
-            <div 
-              key={index} 
-              className="flex flex-col rounded-3xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-transform duration-300 mx-auto"
-              style={cardStyle}
-            >
-              <div className="px-6">
-                <img style={featureIconStyle} className="" src={card.bottomImage} alt="Feature Icon" />
-                <h3 className="text-white font-semibold text-2xl lg:text-3xl">{card.title}</h3>
-                <p className="mt-3 text-base text-white opacity-80">{card.description}</p>
-              </div>
-              <img className="h-56 w-full object-cover object-top mt-8" src={card.topImage} alt={`Illustration for ${card.title}`} />
-            </div>
+            <AnimatedCard key={index} card={card} index={index} />
           ))}
         </div>
       </div>

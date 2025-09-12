@@ -1,8 +1,36 @@
-
-
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Section3: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const imageRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Animate when 10% of the image is visible
+      }
+    );
+
+    const currentImageRef = imageRef.current;
+    if (currentImageRef) {
+      observer.observe(currentImageRef);
+    }
+
+    return () => {
+      if (currentImageRef) {
+        observer.unobserve(currentImageRef);
+      }
+    };
+  }, []);
+  
   const gradientTextStyle = {
     WebkitTextFillColor: 'transparent',
     backgroundImage: 'linear-gradient(#32d09f 58%, #005f42)',
@@ -51,7 +79,8 @@ const Section3: React.FC = () => {
         </div>
         <div className="mt-12 lg:mt-0">
           <img 
-            className="lg:w-[80%] mx-auto"
+            ref={imageRef}
+            className={`lg:w-[80%] mx-auto transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
             src="https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/6460001af9653f35027207c0_Group%2056%20(2)-p-1600.png"
             alt="Sales performance dashboard"
           />

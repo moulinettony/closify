@@ -1,8 +1,34 @@
-
-
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Section4: React.FC = () => {
+  const [isImageVisible, setIsImageVisible] = useState(false);
+  const imageRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsImageVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentImageRef = imageRef.current;
+    if (currentImageRef) {
+      observer.observe(currentImageRef);
+    }
+
+    return () => {
+      if (currentImageRef) {
+        observer.unobserve(currentImageRef);
+      }
+    };
+  }, []);
+
   const gradientTextStyle = {
     WebkitTextFillColor: 'transparent',
     backgroundImage: 'linear-gradient(#32d09f 58%, #005f42)',
@@ -49,7 +75,8 @@ const Section4: React.FC = () => {
           </div>
           <div className="mt-12 lg:mt-0 lg:col-span-3">
             <img
-              className="lg:max-w-[543px] lg:float-right"
+              ref={imageRef}
+              className={`lg:max-w-[543px] lg:float-right transition-all duration-1000 ease-out ${isImageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               src="https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/64600be16eeb2a8e192ee4e2_Group%2074%20(4).png"
               alt="Recruiting sales professionals"
             />

@@ -1,11 +1,36 @@
-
-
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import BrandSlider from './BrandSlider';
-import Header from './Header';
 
 const Section1: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isVideoVisible, setIsVideoVisible] = useState(false);
+  const videoRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVideoVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const currentVideoRef = videoRef.current;
+    if (currentVideoRef) {
+      observer.observe(currentVideoRef);
+    }
+
+    return () => {
+      if (currentVideoRef) {
+        observer.unobserve(currentVideoRef);
+      }
+    };
+  }, []);
+
 
   const gradientTextStyle = {
     WebkitTextFillColor: 'transparent',
@@ -20,11 +45,21 @@ const Section1: React.FC = () => {
     color: '#0b0d0c'
   };
 
-  const sectionStyle = {
-    backgroundImage: "url('https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645eceecba573d42a2d848f0_Group%2070%20(1).png')",
-    backgroundPosition: '50% 100%',
-    backgroundSize: 'cover',
+  const sectionStyle: React.CSSProperties = {
+    position: 'relative',
     paddingBottom: '20px',
+    overflow: 'hidden',
+  };
+
+  const backgroundStyle: React.CSSProperties = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    objectPosition: '50% 100%',
+    zIndex: 0,
   };
 
   const playButtonOverlayStyle: React.CSSProperties = {
@@ -46,11 +81,24 @@ const Section1: React.FC = () => {
     <section 
       id="section1"
       style={sectionStyle}
+      className="pt-8"
     >
-      <Header />
-      <div style={{ maxWidth: '1300px' }} className="mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <img
+        src="https://cdn.prod.website-files.com/645d0d75e0db7f988dbf26c3/645eceecba573d42a2d848f0_Group%2070%20(1).png"
+        alt="Background decoration"
+        style={backgroundStyle}
+        className="hue-rotate-[45deg]"
+      />
+      <div className="flex justify-center z-1 relative">
+        <img
+          src="https://www.ecomvestors.com/_next/image?url=%2Flogos%2Fnew-logo.png&w=256&q=100"
+          alt="Closify Logo"
+          style={{ width: '200px', height: 'auto' }}
+        />
+      </div>
+      <div style={{ maxWidth: '1300px' }} className="mx-auto px-4 sm:px-6 lg:px-8 pb-16 z-1 relative">
         <div className="lg:grid lg:grid-cols-5 lg:gap-16 lg:items-center pt-16">
-          <div className="text-center lg:text-left lg:col-span-2">
+          <div className="text-center lg:text-left lg:col-span-2 hue-rotate-[45deg]">
             <h2 className="text-base font-bold tracking-wide uppercase" style={{ color: '#32d09f' }}>Welcome to Closify.</h2>
             <h1 className="mt-2 text-[28px] tracking-tight font-bold text-white md:text-[38px] md:leading-tight">
               Hire <span style={gradientTextStyle}>Commission-Only </span>
@@ -70,7 +118,10 @@ const Section1: React.FC = () => {
             </div>
           </div>
           <div className="mt-12 lg:mt-0 lg:col-span-3">
-            <div className="wistia_responsive_padding rounded-2xl shadow-2xl overflow-hidden" style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
+            <div 
+              ref={videoRef}
+              className={`wistia_responsive_padding rounded-2xl shadow-2xl overflow-hidden transition-all duration-1000 ease-out ${isVideoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+              style={{ padding: '56.25% 0 0 0', position: 'relative' }}>
               <div className="wistia_responsive_wrapper" style={{ height: '100%', left: 0, position: 'absolute', top: 0, width: '100%' }}>
                 {isPlaying ? (
                   <div
@@ -86,7 +137,8 @@ const Section1: React.FC = () => {
                       alt="Play video about commission-only sales reps"
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                     />
-                    <div 
+                    <div
+                      className="hue-rotate-[45deg]"
                       style={playButtonOverlayStyle}
                       onMouseOver={e => {
                         e.currentTarget.style.transform = 'translate(-50%, -50%) scale(1.1)';
