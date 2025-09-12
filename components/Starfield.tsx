@@ -6,7 +6,7 @@ interface StarfieldProps {
   speed?: number;
 }
 
-const Starfield: React.FC<StarfieldProps> = ({ numStars = 500, speed = .5 }) => {
+const Starfield: React.FC<StarfieldProps> = ({ numStars = 800, speed = .5 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const starsRef = useRef<Star[]>([]);
 
