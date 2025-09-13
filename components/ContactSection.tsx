@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Footer from './Footer';
+import { supabase } from '../lib/supabaseClient';
 
 const countries = [
   { name: 'Algeria', code: '+213', iso: 'dz' },
@@ -50,6 +51,7 @@ const ContactSection: React.FC = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isImageVisible, setIsImageVisible] = useState(false);
   const imageRef = useRef<HTMLImageElement | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -120,7 +122,7 @@ const ContactSection: React.FC = () => {
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
@@ -128,15 +130,33 @@ const ContactSection: React.FC = () => {
       return;
     }
     setErrors({});
+    setIsSubmitting(true);
 
-    const { countryCode, phone, ...restOfData } = formData;
     const submissionData = {
-      ...restOfData,
-      Phone: `${countryCode} ${phone}`
+      name: formData.name,
+      phone: `${formData.countryCode} ${formData.phone}`,
+      revenue: formData.revenue,
+      reps: formData.reps,
+      challenge: formData.challenge,
+      is_ready: formData.isReady,
     };
 
-    console.log('Form submitted:', submissionData);
-    setShowSuccessMessage(true);
+    try {
+      const { error } = await supabase
+        .from('leads')
+        .insert([submissionData]);
+
+      if (error) {
+        throw error;
+      }
+
+      setShowSuccessMessage(true);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting your form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const gradientTextStyle = {
@@ -350,8 +370,13 @@ const ContactSection: React.FC = () => {
                   </div>
 
                   <div>
-                    <button type="submit" className="rounded-md border border-transparent px-8 py-3 text-sm font-medium transform hover:-translate-y-0.5 transition hover:brightness-110" style={buttonStyle}>
-                      Submit
+                    <button 
+                      type="submit" 
+                      className="rounded-md border border-transparent px-8 py-3 text-sm font-medium transform hover:-translate-y-0.5 transition hover:brightness-110 disabled:opacity-70 disabled:cursor-not-allowed" 
+                      style={buttonStyle}
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? 'Submitting...' : 'Submit'}
                     </button>
                   </div>
                 </form>
