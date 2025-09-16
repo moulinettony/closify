@@ -56,7 +56,7 @@ const Section6: React.FC = () => {
     <section id="section6" ref={sectionRef} className="py-16 sm:py-18 text-slate-200">
       <div style={{ maxWidth: '1216px' }} className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl overflow-visible sm:leading-[1.3] font-bold tracking-tight text-white sm:text-5xl overflow-hidden py-4">
+          <h2 className="text-3xl lg:overflow-visible sm:leading-[1.3] font-bold tracking-tight text-white sm:text-5xl overflow-hidden py-4">
             <span ref={span1Ref} className="block whitespace-nowrap">
               Recruit, Hire & Manage
             </span>
