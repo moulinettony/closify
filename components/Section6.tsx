@@ -57,10 +57,10 @@ const Section6: React.FC = () => {
       <div style={{ maxWidth: '1216px' }} className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl lg:overflow-visible sm:leading-[1.3] font-bold tracking-tight text-white sm:text-5xl overflow-hidden py-4">
-            <span ref={span1Ref} className="block whitespace-nowrap">
+            <span ref={span1Ref} className="block">
               Recruit, Hire & Manage
             </span>
-            <span ref={span2Ref} className="block whitespace-nowrap">
+            <span ref={span2Ref} className="block">
               Verified Closers in <span style={gradientTextStyle}>One Click.</span>
             </span>
           </h2>
